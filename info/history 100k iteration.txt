@@ -1,0 +1,55 @@
+Forward Prop with values 43 68 243 , they are well, 42 67 242
+Word prediction: ., 144
+Top 5 predictions:
+ .
+0.40805
+ ,
+0.0919232
+ ?
+0.0566251
+ for
+0.0344203
+ to
+0.0256427
+
+Forward Prop with values 214 68 221 , how are you, 213 67 220
+Word prediction: going, 28
+Top 5 predictions:
+ going
+0.155282
+ .
+0.055117
+ like
+0.0524839
+ are
+0.0408977
+ ?
+0.0396234
+
+Forward Prop with values 43 22 26 , they had to, 42 21 25
+Word prediction: do, 32
+Top 5 predictions:
+ do
+0.172048
+ be
+0.123885
+ go
+0.097594
+ get
+0.0632982
+ work
+0.0397043
+
+Forward Prop with values 140 68 113 - there are times - 139 67 112
+Word prediction: . - 144
+Top 5 predictions:
+ .
+0.230225
+ ,
+0.0675078
+ ?
+0.0555911
+ for
+0.0387934
+ to
+0.03753

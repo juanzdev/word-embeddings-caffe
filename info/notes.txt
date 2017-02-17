@@ -1,0 +1,18 @@
+cd "/Users/juank/Dropbox/ML/MLPersonal/WordEmbeddingsCaffe/"
+
+locate root of proyect
+
+python ./src/generate_hdf5_data.py 
+
+caffe.bin train --solver=model/solver.prototxt
+
+caffe.bin test -model model/model.prototxt -weights model_snapshot/snap_iter_100000.caffemodel
+
+h5ls ./hdf5/train.h5
+
+cd /Users/juank/Downloads/caffe-master/
+./python/draw_net.py /Users/juank/Dropbox/ML/MLPersonal/WordEmbeddingsCaffe/model/model.prototxt architecture.jpgtrial_viz.png
+
+sudo pip install protobuf
+
+python ./src/predict.py 

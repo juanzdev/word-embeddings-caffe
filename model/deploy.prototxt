@@ -1,0 +1,80 @@
+name: "LanguageNet"
+
+layer {
+	name: "data"
+	type: "Input"
+	top: "data"
+	input_param{
+		shape {
+		  dim: 1
+		  dim: 3
+		}
+	}
+}
+
+layer{
+	name: "ipWordEmbedding"
+	type: "Embed"
+	bottom: "data"
+	top: "ipWordEmbedding"
+	embed_param {
+		input_dim: 251
+		num_output: 50
+		weight_filler {
+     		type: "xavier"
+    	}
+    	bias_filler {
+      		type: "constant"
+      		value: 0
+    	}
+	}
+}
+
+layer{
+	name: "ipHidden"
+	type: "InnerProduct"
+	bottom: "ipWordEmbedding"
+	top: "ipHidden"
+	inner_product_param {
+		num_output: 200
+		weight_filler {
+     		type: "xavier"
+    	}
+    	bias_filler {
+      		type: "constant"
+      		value: 0
+    	}
+	}
+}
+
+layer {
+  name: "relu1"
+  type: "Sigmoid"
+  bottom: "ipHidden"
+  top: "reluOutput"
+}
+
+layer{
+	name: "inputToSoftmax"
+	type: "InnerProduct"
+	bottom: "reluOutput"
+	top: "inputToSoftmax"
+	inner_product_param {
+		num_output: 251
+		weight_filler {
+     		type: "xavier"
+    	}
+    	bias_filler {
+      		type: "constant"
+      		value: 0
+    	}
+	}
+}
+
+layer{
+	name: "softmax"
+	type: "Softmax"
+	bottom: "inputToSoftmax"
+	top: "prediction"
+}
+
