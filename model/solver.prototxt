@@ -2,7 +2,7 @@
 net: "model/train_val.prototxt"
 test_iter: 1000
 # Carry out testing every 500 training iterations.
-test_interval: 1000
+test_interval: 20000
 # The base learning rate, momentum and the weight decay of the network.
 base_lr: 0.01
 momentum: 0.9
@@ -15,9 +15,9 @@ power: 0.75
 # Display every 100 iterations
 display: 1000
 # The maximum number of iterations
-max_iter: 100000
+max_iter: 3725000
 # snapshot intermediate results
-snapshot: 50000
+snapshot: 100000
 snapshot_prefix: "model_snapshot/snap"
 # solver mode: CPU or GPU
 solver_mode: CPU

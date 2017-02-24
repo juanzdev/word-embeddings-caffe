@@ -32,7 +32,7 @@ layer{
 	bottom: "data"
 	top: "ipWordEmbedding"
 	embed_param {
-		input_dim: 251
+		input_dim: 250
 		num_output: 50
 		weight_filler {
     		type: "xavier"
@@ -62,19 +62,19 @@ layer{
 }
 
 layer {
-  name: "relu1"
-  type: "Sigmoid"
+  name: "NonLinearity"
+  type: "ReLU"
   bottom: "ipHidden"
-  top: "reluOutput"
+  top: "nonLinearityOutput"
 }
 
 layer{
 	name: "inputToSoftmax"
 	type: "InnerProduct"
-	bottom: "reluOutput"
+	bottom: "nonLinearityOutput"
 	top: "inputToSoftmax"
 	inner_product_param {
-		num_output: 251
+		num_output: 250
 		weight_filler {
      		type: "xavier"
     	}

@@ -6,13 +6,14 @@ python ./src/generate_hdf5_data.py
 
 caffe.bin train --solver=model/solver.prototxt
 
-caffe.bin test -model model/model.prototxt -weights model_snapshot/snap_iter_100000.caffemodel
+caffe.bin test -model model/train_val.prototxt -weights model_snapshot/snap_iter_100000.caffemodel
 
 h5ls ./hdf5/train.h5
 
 cd /Users/juank/Downloads/caffe-master/
-./python/draw_net.py /Users/juank/Dropbox/ML/MLPersonal/WordEmbeddingsCaffe/model/model.prototxt architecture.jpgtrial_viz.png
+./python/draw_net.py /Users/juank/Dev/WordEmbeddingsCaffe/model/train_val.prototxt architectureWordEmbeddingsNet.png
 
 sudo pip install protobuf
 
 python ./src/predict.py 
+python ./src/closest_words.py 
